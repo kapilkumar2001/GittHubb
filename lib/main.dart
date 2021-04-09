@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gitthubb/providers/user_provider.dart';
 import 'package:gitthubb/userdetails_page.dart';
-import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,15 +9,13 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: UserProvider(),
-      child: MaterialApp(
+    return MaterialApp(
         title: 'GittHubb',
         theme: ThemeData(
           primarySwatch: Colors.blue,
+        //  scaffoldBackgroundColor: Colors.black12,
         ),
         home: MyHomePage(),
-      ),
     );
   }
 }
@@ -44,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor: Colors.black12,
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(left: 10, right: 10, bottom: 10, top: MediaQuery.of(context).size.height*0.3),
@@ -66,9 +63,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         return 'Please write something';
                       }
                     },
-                    onFieldSubmitted: (ctx){
-                      submit();
-                    },
+                    // onFieldSubmitted: (ctx){
+                    //   submit();
+                    // },
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(10),
                       hintStyle: TextStyle(color: Colors.grey),
